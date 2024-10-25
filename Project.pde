@@ -9,8 +9,9 @@ NeuralBox neuralBox;
 Game game = new Game();
 
 public void setup(){
-  size(1024,1024+64);
+  size(1024+256,1024+128);
   noStroke();
+  textFont(createFont("FSEX300.ttf",24));
   textSize(24);
   textAlign(LEFT,CENTER);
   

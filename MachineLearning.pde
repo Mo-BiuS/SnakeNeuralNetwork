@@ -57,14 +57,12 @@ class NeuralNetwork implements Comparable{
   Node start_fruitDown = new startNode();
   Node start_fruitLeft = new startNode();
   
-  Node start_size = new startNode();
-  Node start[] = {start_size,start_snakeUp,start_snakeRight,start_fruitDown,start_fruitLeft,start_isFruitUp,start_isFruitRight,start_isFruitDown,start_isFruitLeft};
+  Node start[] = {start_snakeUp,start_snakeRight,start_fruitDown,start_fruitLeft,start_isFruitUp,start_isFruitRight,start_isFruitDown,start_isFruitLeft};
   
   Game game;
   
   NeuralNetwork(){
     Node[] mid = addNode(16,end);
-    //mid = addNode(16,mid);
     connectToStart(start,mid);
   }
   
@@ -105,8 +103,6 @@ class NeuralNetwork implements Comparable{
     start_fruitDown.value = (y+1 == BOARD_Y || game.board[y+1][x] > 0) ? 1 : (game.board[y+1][x] == -1) ? -1 : 0;
     start_fruitLeft.value = (x-1 == -1 || game.board[y][x-1] > 0) ? 1 : (game.board[y][x-1] == -1) ? -1 : 0;
     
-    start_size.value = game.snakeSize;
-    
     float up = end_up.calcWeight();
     float right = end_right.calcWeight();
     float down = end_down.calcWeight();
@@ -125,10 +121,10 @@ class NeuralNetwork implements Comparable{
     }
   }
   public void genNodeVariant(Node me, Node ref){
-    me.threshold = ref.threshold+random(-0.1f,0.1f);
+    me.threshold = ref.threshold+random(-0.1,0.1);
     for(int i = 0; i < me.nodeConnect.size(); i++){
       genNodeVariant(me.nodeConnect.get(i),ref.nodeConnect.get(i));
-      me.nodeWeight.set(i,ref.nodeWeight.get(i)+random(-0.1f,0.1f));
+      me.nodeWeight.set(i,ref.nodeWeight.get(i)+random(-0.1,0.1));
     }
   }
   

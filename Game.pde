@@ -66,22 +66,22 @@ class Game {
         case 0:
           snakeY -= 1;
           if(fruitY < snakeY)goodPoint++;
-          else goodPoint-=2;
+          //else goodPoint-=2;
           break;
         case 1:
           snakeX += 1;
           if(fruitX > snakeX)goodPoint++;
-          else goodPoint-=2;
+          //else goodPoint-=2;
           break;
         case 2:
           snakeY += 1;
           if(fruitY > snakeY)goodPoint++;
-          else goodPoint-=2;
+          //else goodPoint-=2;
           break;
         case 3:
           snakeX -= 1;
           if(fruitX < snakeX)goodPoint++;
-          else goodPoint-=2;
+          //else goodPoint-=2;
           break;
       }
       if(snakeX >= 0 && snakeY >= 0 && snakeX < BOARD_X && snakeY < BOARD_Y){
@@ -136,6 +136,9 @@ class Game {
   }
   
   public int getPerformance(){
-    return nAction -lossType*500000+goodPoint*5;
+    return nAction -lossType*500000+goodPoint;
+  }
+  public int getPerformanceWithoutMalus(){
+    return nAction+goodPoint;
   }
 }

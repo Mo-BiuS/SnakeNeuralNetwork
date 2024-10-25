@@ -1,8 +1,8 @@
 
 class NeuralBox{
-  final int N_SIMULATION = 2048*4;
-  final int N_SAMPLE = 64;
-  final int KEEP_N_BEST = 8;
+  final int N_SIMULATION = 2048*2;
+  final int N_SAMPLE = 128;
+  final int KEEP_N_BEST = 16;
   int generation = 0;
   int totalNumberOfStep = 0;
   
