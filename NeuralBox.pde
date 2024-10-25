@@ -31,6 +31,7 @@ class NeuralBox{
     if(gameEnd){
       generation++;
       totalNumberOfStep = 0;
+      endOfGen();
       genNewGenFromWinners(getWinners());
     }
   }
@@ -61,6 +62,16 @@ class NeuralBox{
     }
     
     return winners;
+  }
+  
+  public ArrayList<Integer> getCurrentScoreArrayList(){
+    ArrayList<Integer> rep = new ArrayList<>();
+    for(int i = 0; i < N_SIMULATION; i++){
+      var score = nn[i].game.snakeSize-3;
+      while(rep.size()-1 < score)rep.add(0);
+      rep.set(score,rep.get(score)+1);
+    }
+    return rep;
   }
   
 }

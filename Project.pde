@@ -9,7 +9,7 @@ NeuralBox neuralBox;
 Game game = new Game();
 
 public void setup(){
-  size(1024+256,1024+128);
+  size(2048,1024+192);
   noStroke();
   textFont(createFont("FSEX300.ttf",24));
   textSize(24);
